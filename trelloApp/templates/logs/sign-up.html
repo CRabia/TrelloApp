@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+</head>
+<body>
+    {% if already_exist %}
+        <p class="error">L'email renseignée est déjà utilisé!</p>
+    {% endif %}
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.email }}. Thanks for logging in.</p>
+    {% else %}
+        <p>Welcome, new user. Please log in.</p>
+    {% endif %}
+    <div id="formInscription">
+        <form action="{% url 'signup' %}" method="post">
+            {% csrf_token %}
+            <label for="username" class="label">Email</label>
+            <input type="email" name="email" class="round-input" placeholder="exemple@mail.com">
+            <label for="password" class="label">Mot de passe</label>
+            <input type="password" name="password" class="round-input" placeholder="********">
+            <input type="submit" class="primary-btn" value="Inscription">
+        </form>
+    </div>
+</body>
+</html>

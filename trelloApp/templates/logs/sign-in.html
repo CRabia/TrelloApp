@@ -1,10 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 </head>
 <body>
-    <h1>Connexion</h1>
+<div id="formLogin">
+    {% if form.errors %}
+        <p class="error">Votre email ou votre mot de passe sont incorrects!</p>
+    {% endif %}
+    {% if signup_error %}
+        <p class="error">Une erreur est survenue veuillez vous inscrire de nouveau!</p>
+    {% endif %}
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.email }}. Thanks for logging in.</p>
+    {% else %}
+        <p>Welcome, new user. Please log in.</p>
+    {% endif %}
+    <form action="{% url 'signin' %}" method="post">
+        {% csrf_token %}
+        <label for="username" class="label">Email</label>
+        <input type="email" name="username" class="round-input" placeholder="exemple@mail.com"><br/>
+        <label for="password" class="label">Mot de passe</label>
+        <input type="password" name="password" class="round-input" placeholder="********"><br/>
+        <input type="submit" class="primary-btn" value="Connexion">
+    </form>
+</div>
 </body>
 </html>

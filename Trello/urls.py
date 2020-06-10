@@ -17,9 +17,12 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 
-from trelloApp.views.logs import LoginView
+from trelloApp.views.logs import SigninView, SignupView
+from trelloApp.views.front import HomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^login', LoginView.as_view(), name='login'),
+    url(r'^connexion', SigninView.as_view(), name='signin'),
+    path('inscription/', SignupView.as_view(), name='signup'),
+    path('', HomeView.as_view(), name='home'),
 ]
