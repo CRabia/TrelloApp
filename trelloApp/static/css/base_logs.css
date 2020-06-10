@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#body-logs {
+    background-color: #e3e8ee;
+    font-family: "Montserrat", sans-serif;
+}
+
+.container-logs{
+    display: flex;
+    max-width: 355px;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+    max-height: 100vh;
+    min-height: 100vh;
+}
+#form-login header h1{
+    font-size: 52px;
+    text-align: center;
+    color: blueviolet;
+    font-weight: bold;
+    font-family: "Montserrat Black", sans-serif;
+    margin: 0;
+}
+
+#form-login footer a {
+    font-size: 12px;
+    color: #5469d4;
+}
+
+#form-login footer p {
+    font-size: 12px;
+    color: #697386;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#form-login .content h2{
+    text-align: center;
+    font-size: 18px;
+    color: #697386;
+    margin:0 0 10px 0;
+}
+
+#form-login .content{
+    min-height: 300px;
+    background-color: white;
+    border-radius: 8px;
+    margin: 0 15px;
+    box-shadow: 0 7px 14px 0 rgba(60, 66, 87, .08), 0 3px 6px 0 rgba(0, 0, 0, .12);
+    padding: 25px;
+    font-size: 16px;
+}
+
+#form-login .content label:first-child{
+    margin-top:0 !important;
+}
+
+#form-login .content label{
+    color: #697386;
+    display: block;
+    margin: 15px 0 7px 0;
+}
+
+#form-login .content form{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 285px;
+}
+
+#form-login .content input{
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius:4px;
+    width: calc(100% - 33px);
+}
+
+
+#form-login .content input:focus{
+    outline: none;
+}
+
+#form-login .content button{
+    padding: 9px 18px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    background-color: blueviolet;
+    margin: 15px 0 7px 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+#form-login .content button:hover{
+    background-color: rebeccapurple;
+    transition: .2s;
+}
+
+.error{
+    color: red;
+    font-size: 12px;
+    height: 15px;
+    text-align: center;
+}

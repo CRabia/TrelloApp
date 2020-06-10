@@ -1,28 +1,34 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+{% extends "base_logs.html" %}
+
+{% block head %}
     <meta charset="UTF-8">
     <title>Inscription</title>
-</head>
-<body>
-    {% if already_exist %}
-        <p class="error">L'email renseignée est déjà utilisé!</p>
-    {% endif %}
-    {% if user.is_authenticated %}
-        <p>Welcome, {{ user.email }}. Thanks for logging in.</p>
-    {% else %}
-        <p>Welcome, new user. Please log in.</p>
-    {% endif %}
-    <div id="formInscription">
-        <form action="{% url 'signup' %}" method="post">
-            {% csrf_token %}
-            <label for="username" class="label">Email</label>
-            <input type="email" name="email" class="round-input" placeholder="exemple@mail.com">
-            <label for="password" class="label">Mot de passe</label>
-            <input type="password" name="password" class="round-input" placeholder="********">
-            <input type="submit" class="primary-btn" value="Inscription">
-        </form>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-logs">
+        <div id="form-login">
+            <header>
+                <h1>Trello</h1>
+                <p class="error">{{ error }}</p>
+            </header>
+            <div class="content">
+                <h2>Inscription</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                            {{ field.label_tag }}
+                            {{ field }}
+                    {% endfor %}
+                    <button type="submit">Sign up</button>
+                </form>
+            </div>
+            <footer>
+                <p>Vous avez déjà un compte ? <a href="{% url 'signin' %}">Connectez-vous !</a></p>
+            </footer>
+        </div>
     </div>
-</body>
-</html>
+
+{% endblock %}

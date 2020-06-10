@@ -1,32 +1,36 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+{% extends "base_logs.html" %}
+
+{% block head %}
     <meta charset="UTF-8">
     <title>Connexion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-</head>
-<body>
-<div id="formLogin">
-    {% if form.errors %}
-        <p class="error">Votre email ou votre mot de passe sont incorrects!</p>
-    {% endif %}
-    {% if signup_error %}
-        <p class="error">Une erreur est survenue veuillez vous inscrire de nouveau!</p>
-    {% endif %}
-    {% if user.is_authenticated %}
-        <p>Welcome, {{ user.email }}. Thanks for logging in.</p>
-    {% else %}
-        <p>Welcome, new user. Please log in.</p>
-    {% endif %}
-    <form action="{% url 'signin' %}" method="post">
-        {% csrf_token %}
-        <label for="username" class="label">Email</label>
-        <input type="email" name="username" class="round-input" placeholder="exemple@mail.com"><br/>
-        <label for="password" class="label">Mot de passe</label>
-        <input type="password" name="password" class="round-input" placeholder="********"><br/>
-        <input type="submit" class="primary-btn" value="Connexion">
-    </form>
-</div>
-</body>
-</html>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-logs">
+        <div id="form-login">
+            <header>
+                <h1>Trello</h1>
+                <p class="error">{{ error }}</p>
+            </header>
+            <div class="content">
+                <h2>Connexion</h2>
+                <form action="{% url 'signin' %}" method="post">
+                    <div>
+                        {% csrf_token %}
+                        <label for="username" class="label">Username</label>
+                        <input type="text" name="username" class="round-input" placeholder="exemple@mail.com"><br/>
+                        <label for="password" class="label">Mot de passe</label>
+                        <input type="password" name="password" class="round-input" placeholder="********"><br/>
+                    </div>
+                    <button>Se connecter</button>
+                </form>
+            </div>
+            <footer>
+                <p>Vous n'avez pas encore de compte ? <a href="{% url 'signup' %}">Créez-vous en un !</a></p>
+            </footer>
+        </div>
+    </div>
+
+{% endblock %}
