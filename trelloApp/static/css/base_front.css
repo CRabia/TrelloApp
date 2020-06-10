@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#body-logs {
+    background-color: #e3e8ee;
+    font-family: "Montserrat", sans-serif;
+}

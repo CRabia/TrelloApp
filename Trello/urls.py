@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from trelloApp.views.logs import SigninView, SignupView, logout_view
-from trelloApp.views.front import HomeView
+from trelloApp.views.board import HomeView
+from trelloApp.views.board import BoardView, create_project, delete_all_project, BoardAPIViewSet
+
+
+from rest_framework.routers import DefaultRouter
+router = DefaultRouter()
+router.register(r'boardAPI', BoardAPIViewSet, basename='boardAPI')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +33,8 @@ urlpatterns = [
     url(r'^connexion', SigninView.as_view(), name='signin'),
     path('inscription/', SignupView.as_view(), name='signup'),
     path('', HomeView.as_view(), name='home'),
+    url(r'board/(?P<project_id>\d+)/$', BoardView.as_view(), name='board'),
+    path('delete_all_project/', delete_all_project, name='delete_all-project'),
+    path('ajax_create_project/', create_project, name='create_project'),
+    url(r'^api/', include(router.urls)),
 ]

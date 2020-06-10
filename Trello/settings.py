@@ -35,8 +35,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'trelloApp'
+    'trelloApp',
+    'corsheaders',
+    'rest_framework',
 ]
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'POST',
+    'PUT',
+)
+
+CORS_ALLOW_HEADERS = (
+    'content-type',
+    'x-csrftoken',
+    'x-requested-with',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,7 +89,7 @@ WSGI_APPLICATION = 'Trello.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_trello',
+        'NAME': 'trellodb',
         'USER': 'cyril',
         'PASSWORD': 'cyril',
         'HOST': '127.0.0.1',

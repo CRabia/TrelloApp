@@ -1,0 +1,106 @@
+#project {
+    max-width: 960px;
+    margin: auto;
+    padding: 15px;
+}
+
+.card-project {
+    width: 300px;
+    height: 80px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 7px 14px 0 rgba(60, 66, 87, .08), 0 3px 6px 0 rgba(0, 0, 0, .12);
+    display: flex;
+    margin: 10px;
+}
+
+.card-project-empty{
+    width: 300px;
+    height: 80px;
+    border:1px solid #ccc;
+    border-style: dashed;
+    border-radius: 4px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-project-empty p{
+    text-align: center;
+    color: #b7b5b5;
+}
+
+.card-project img {
+    width: 30px;
+    height: auto;
+    margin: 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card-project p {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #697386;
+    text-decoration: none;
+}
+
+#container_project {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 52px;
+    color: blueviolet;
+    font-weight: bold;
+    font-family: "Montserrat Black", sans-serif;
+    margin-left: 55px;
+}
+
+h2 {
+    margin-left: 10px;
+}
+
+.btn-logout {
+    padding: 9px 18px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    background-color: blueviolet;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 4px 8px;
+    color: #697386;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+    width: fit-content;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn .logo {
+    font-size: 28px;
+    height: 28px;
+    line-height: 10px;
+    position: relative;
+    top: 5px;
+    left: -3px;
+}
+
